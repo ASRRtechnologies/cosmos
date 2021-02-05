@@ -20,9 +20,8 @@ script:
   - ./gradlew build
 #  - mvn checkstyle:check
   #  - mvn pmd:check
-  - ./gradlew check
-
-
+#  - ./gradlew check
+  - ./gradlew jacocoTestReport
 
 after_success:
   - codecov
