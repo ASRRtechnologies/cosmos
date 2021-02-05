@@ -36,6 +36,11 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
+tasks.jacocoTestReport {
+	reports {
+		xml.isEnabled = true
+	}
+}
 
 
 tasks.withType<KotlinCompile> {
