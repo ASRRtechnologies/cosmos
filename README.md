@@ -6,10 +6,7 @@
 [![codebeat badge](https://codebeat.co/badges/bd8fbf4e-9368-471c-aef7-7f7f1fe956ae)](https://codebeat.co/projects/github-com-asrrtechnologies-cosmos-main)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8ea97b6909f04c76b884a619fd7f8c12)](https://www.codacy.com/gh/ASRRtechnologies/cosmos/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ASRRtechnologies/cosmos&amp;utm_campaign=Badge_Grade)
 
-
-
 Repository that houses the element database, powering the Project Configurator with over 30k elements. Built on Spring Boot.
-
 
 <img src="https://img.shields.io/badge/spring-boot%20-%236DB33F.svg?&style=for-the-badge&logo=spring&logoColor=white"/> <img src="https://img.shields.io/badge/kotlin-%230095D5.svg?&style=for-the-badge&logo=kotlin&logoColor=white"/> <img src ="https://img.shields.io/badge/MongoDB-%234ea94b.svg?&style=for-the-badge&logo=mongodb&logoColor=white"/>
 <img src="https://img.shields.io/badge/gradle%20-%2302313A.svg?&style=for-the-badge&logo=gradle&logoColor=white"/> 
