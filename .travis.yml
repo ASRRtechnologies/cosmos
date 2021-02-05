@@ -1,0 +1,34 @@
+language: java
+jdk: openjdk11
+sudo: false
+services:
+  - docker
+
+env:
+  global:
+    - IMAGE=asrr/vw-element-db
+    - DEPLOYMENT=vw-element-db
+    - DEPLOYMENT_PRODUCTIE=vw-element-db-productie
+    - DEPLOYMENT_ACCEPTATIE=vw-element-db-acceptatie
+    - DEPLOYMENT_NAMESPACE=vw-element-db
+    - DEPLOYMENT_NAMESPACE_K8S=volkerwessels
+
+before_script:
+  - pip install --user codecov
+
+script:
+  - ./gradlew build
+#  - mvn checkstyle:check
+  #  - mvn pmd:check
+  - ./gradlew test
+
+after_success:
+  - codecov
+
+cache:
+  directories:
+    - $HOME/.gradle
+    - $HOME/kubernetes
+
+notifications:
+  webhooks: https://outlook.office.com/webhook/6a311c66-6bd9-4376-8724-999dbfaf7384@59447359-6686-4a9e-af5a-93a375e8ef95/TravisCI/a01ffab2ee894ae5881d8506fce844e1/b92cac27-dddb-4ebe-9abb-f379f4b8d14b
