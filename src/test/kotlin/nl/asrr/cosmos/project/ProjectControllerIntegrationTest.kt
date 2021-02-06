@@ -102,6 +102,5 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         assertEquals(client, foundClient)
         assertEquals("$client$name", foundCode)
         assertEquals(budget, foundBudget)
-
     }
 }
