@@ -5,6 +5,7 @@
 [![codecov](https://codecov.io/gh/ASRRtechnologies/cosmos/branch/main/graph/badge.svg?token=6US5FQD10B)](https://codecov.io/gh/ASRRtechnologies/cosmos)
 [![codebeat badge](https://codebeat.co/badges/bd8fbf4e-9368-471c-aef7-7f7f1fe956ae)](https://codebeat.co/projects/github-com-asrrtechnologies-cosmos-main)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8ea97b6909f04c76b884a619fd7f8c12)](https://www.codacy.com/gh/ASRRtechnologies/cosmos/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ASRRtechnologies/cosmos&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.com/ASRRtechnologies/cosmos.svg?branch=main)](https://travis-ci.com/ASRRtechnologies/cosmos)
 
 Repository that houses the element database, powering the Project Configurator with over 30k elements. Built on Spring Boot.
 
