@@ -25,13 +25,10 @@ Repository that houses the element database, powering the Project Configurator w
 - Run PMD for more tips
 
 ### Resources
-- JIRA board https://asrrtechnologies.atlassian.net/jira/software/projects/VWPC/boards/2
-- Confluence Documentation & Briefing https://asrrtechnologies.atlassian.net/wiki/spaces/VP/overview
-
 | Name   | Url        |   
 | :------------- |-------------:|
-| <img src="https://img.shields.io/badge/Jira%20-%230352CC.svg?&style=for-the-badge&logo=jira&logoColor=white"/>    | https://asrrtechnologies.atlassian.net/jira/software/projects/VWPC/boards/2 |  
-| <img src="https://img.shields.io/badge/Confluence%20-%230352CC.svg?&style=for-the-badge&logo=confluence&logoColor=white"/>       | https://asrrtechnologies.atlassian.net/wiki/spaces/VP/overview      |  
+| <img src="https://img.shields.io/badge/Jira%20-%230352CC.svg?&style=for-the-badge&logo=jira&logoColor=white"/>    | NONE |  
+| <img src="https://img.shields.io/badge/Confluence%20-%230352CC.svg?&style=for-the-badge&logo=confluence&logoColor=white"/>       | NONE      |  
 
 
 
