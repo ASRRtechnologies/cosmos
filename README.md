@@ -5,6 +5,7 @@
 [![codecov](https://codecov.io/gh/ASRRtechnologies/cosmos/branch/main/graph/badge.svg?token=6US5FQD10B)](https://codecov.io/gh/ASRRtechnologies/cosmos)
 [![codebeat badge](https://codebeat.co/badges/bd8fbf4e-9368-471c-aef7-7f7f1fe956ae)](https://codebeat.co/projects/github-com-asrrtechnologies-cosmos-main)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/8ea97b6909f04c76b884a619fd7f8c12)](https://www.codacy.com/gh/ASRRtechnologies/cosmos/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ASRRtechnologies/cosmos&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.com/ASRRtechnologies/cosmos.svg?branch=main)](https://travis-ci.com/ASRRtechnologies/cosmos)
 
 Repository that houses the element database, powering the Project Configurator with over 30k elements. Built on Spring Boot.
 
@@ -24,27 +25,24 @@ Repository that houses the element database, powering the Project Configurator w
 - Run PMD for more tips
 
 ### Resources
-- JIRA board https://asrrtechnologies.atlassian.net/jira/software/projects/VWPC/boards/2
-- Confluence Documentation & Briefing https://asrrtechnologies.atlassian.net/wiki/spaces/VP/overview
-
 | Name   | Url        |   
 | :------------- |-------------:|
-| <img src="https://img.shields.io/badge/Jira%20-%230352CC.svg?&style=for-the-badge&logo=jira&logoColor=white"/>    | https://asrrtechnologies.atlassian.net/jira/software/projects/VWPC/boards/2 |  
-| <img src="https://img.shields.io/badge/Confluence%20-%230352CC.svg?&style=for-the-badge&logo=confluence&logoColor=white"/>       | https://asrrtechnologies.atlassian.net/wiki/spaces/VP/overview      |  
+| <img src="https://img.shields.io/badge/Jira%20-%230352CC.svg?&style=for-the-badge&logo=jira&logoColor=white"/>    | NONE |  
+| <img src="https://img.shields.io/badge/Confluence%20-%230352CC.svg?&style=for-the-badge&logo=confluence&logoColor=white"/>       | NONE      |  
 
 
 
 ## Environments
-### Acceptatie 
+### Main 
 | Name   | Status        |   
 | :------------- |-------------:| 
-| <img src="https://img.shields.io/badge/swagger%20-%2343853D.svg?&style=for-the-badge&logo=swagger&logoColor=white"/>    | https://acceptatie.element-db.vw.api.asrr-tech.com/api/v1/docs |  
-| <img src="https://img.shields.io/badge/Travis CI%20-%23000000.svg?&style=for-the-badge&logo=travis&logoColor=white"/>   | [![Build Status](https://travis-ci.com/ASRRtechnologies/vw-element-db.svg?token=qupxX6pFHqDaPdjEFnQm&branch=acceptatie)](https://travis-ci.com/ASRRtechnologies/vw-asrr-element-db)      |  
+| <img src="https://img.shields.io/badge/swagger%20-%2343853D.svg?&style=for-the-badge&logo=swagger&logoColor=white"/>    | No hosting set up yet |  
+| <img src="https://img.shields.io/badge/Travis CI%20-%23000000.svg?&style=for-the-badge&logo=travis&logoColor=white"/>   | [![Build Status](https://travis-ci.com/ASRRtechnologies/cosmos.svg?branch=main)](https://travis-ci.com/ASRRtechnologies/cosmos)
+|  
 
-### Productie 
+### Local 
 | Name   | Status        |   
 | :------------- |-------------:| 
-| <img src="https://img.shields.io/badge/swagger%20-%2343853D.svg?&style=for-the-badge&logo=swagger&logoColor=white"/>      | https://productie.element-db.vw.api.asrr-tech.com/api/v1/docs |  
-| <img src="https://img.shields.io/badge/Travis CI%20-%23000000.svg?&style=for-the-badge&logo=travis&logoColor=white"/>      | [![Build Status](https://travis-ci.com/ASRRtechnologies/vw-element-db.svg?token=qupxX6pFHqDaPdjEFnQm&branch=productie)](https://travis-ci.com/ASRRtechnologies/vw-asrr-element-db)     |  
+| <img src="https://img.shields.io/badge/swagger%20-%2343853D.svg?&style=for-the-badge&logo=swagger&logoColor=white"/>      | http://localhost:8080/api/v1/docs |  
 
 
