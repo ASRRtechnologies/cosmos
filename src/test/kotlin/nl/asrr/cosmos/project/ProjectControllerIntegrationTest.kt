@@ -1,5 +1,6 @@
 package nl.asrr.cosmos.project
 
+import nl.asrr.cosmos.dto.ProjectCreationDto
 import nl.asrr.cosmos.model.Project
 import nl.asrr.cosmos.repository.ProjectRepository
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -12,6 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.web.server.LocalServerPort
+import org.springframework.http.HttpEntity
+import org.springframework.http.HttpHeaders
+import org.springframework.http.HttpMethod
+import org.springframework.http.ResponseEntity
 import org.springframework.test.context.junit.jupiter.SpringExtension
 
 
@@ -35,13 +40,15 @@ class ProjectControllerIntegrationTest @Autowired constructor(
     private fun getRootUrl(): String? = "http://localhost:$port/api/v1/projects"
 
     private fun saveOneProject() = projectRepository.save(
-        Project(
-            defaultProjectId,
-            "Name",
-            "Client",
-            "P123",
-            1000
-        )
+        getProject()
+    )
+
+    private fun getProject() = Project(
+        defaultProjectId,
+        "Name",
+        "Client",
+        "P123",
+        1000
     )
 
     @Test
@@ -70,5 +77,31 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         assertEquals(200, response.statusCode.value())
         assertNotNull(response.body)
         assertEquals(defaultProjectId, response.body?.id)
+    }
+
+    @Test
+    fun `should create one project`() {
+        val project = getProject()
+        val (_, name, client, _, budget) = project
+        val request = ProjectCreationDto(name, client, budget)
+
+        val create = restTemplate.exchange(
+            getRootUrl(),
+            HttpMethod.POST,
+            HttpEntity(request, HttpHeaders()),
+            Project::class.java
+        )
+
+        assertEquals(201, create.statusCode.value())
+
+        val responseId = create.body?.id!!
+        val (foundId, foundName, foundClient, foundCode, foundBudget) = projectRepository.findById(responseId).orElse(null)
+
+        assertEquals(responseId, foundId)
+        assertEquals(name, foundName)
+        assertEquals(client, foundClient)
+        assertEquals("$client$name", foundCode)
+        assertEquals(budget, foundBudget)
+
     }
 }
