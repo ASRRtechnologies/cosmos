@@ -51,17 +51,17 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         assertEquals(1, response.body?.size)
     }
 
-    @Test
-    fun `should return single patient by id`() {
-//        saveOnePatient()
-//
-//        val response = restTemplate.getForEntity(
-//            getRootUrl() + "/$defaultProjectId",
-//            Project::class.java
-//        )
-//
-//        assertEquals(200, response.statusCode.value())
-//        assertNotNull(response.body)
-//        assertEquals(defaultProjectId, response.body?.id)
-    }
+//    @Test
+//    fun `should return single patient by id`() {
+////        saveOnePatient()
+////
+////        val response = restTemplate.getForEntity(
+////            getRootUrl() + "/$defaultProjectId",
+////            Project::class.java
+////        )
+////
+////        assertEquals(200, response.statusCode.value())
+////        assertNotNull(response.body)
+////        assertEquals(defaultProjectId, response.body?.id)
+//    }
 }
