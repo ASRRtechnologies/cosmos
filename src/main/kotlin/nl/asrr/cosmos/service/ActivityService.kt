@@ -14,7 +14,6 @@ class ActivityService(
 
     fun create(request: Entry, employeeName: String): Employee {
         val employee = employeeRepository.findEmployeeBy(employeeName)
-        employee.entries.add(request)
         return employeeRepository.save(employee)
     }
 

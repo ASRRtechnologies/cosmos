@@ -1,6 +1,5 @@
 package nl.asrr.cosmos.repository
 
-import nl.asrr.cosmos.model.Employee
 import nl.asrr.cosmos.model.Project
 import org.bson.types.ObjectId
 import org.springframework.data.mongodb.repository.MongoRepository

@@ -18,8 +18,7 @@ class RegistrationService(
 
         return employeeRepository.save(
             Employee(
-                name = name,
-                entries = getDefaultEntries()
+                name = name
             )
         )
     }
