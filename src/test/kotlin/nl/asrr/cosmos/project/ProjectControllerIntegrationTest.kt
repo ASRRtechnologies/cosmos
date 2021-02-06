@@ -23,7 +23,7 @@ class ProjectControllerIntegrationTest @Autowired constructor(
     private val projectRepository: ProjectRepository,
     private val restTemplate: TestRestTemplate
 ) {
-    private val defaultProjectId = ObjectId.get()
+    private val defaultProjectId = "id1"
 
     @LocalServerPort
     protected var port: Int = 0
@@ -35,11 +35,19 @@ class ProjectControllerIntegrationTest @Autowired constructor(
 
     private fun getRootUrl(): String? = "http://localhost:$port/api/v1/projects"
 
-    private fun saveOnePatient() = projectRepository.save(Project(defaultProjectId, "Name", "Client", "P123", 1000))
+    private fun saveOneProject() = projectRepository.save(
+        Project(
+            defaultProjectId,
+            "Name",
+            "Client",
+            "P123",
+            1000
+        )
+    )
 
     @Test
-    fun `should return all patients`() {
-        saveOnePatient()
+    fun `should return all projects`() {
+        saveOneProject()
 
         val response = restTemplate.getForEntity(
             getRootUrl(),
@@ -51,17 +59,17 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         assertEquals(1, response.body?.size)
     }
 
-//    @Test
-//    fun `should return single patient by id`() {
-////        saveOnePatient()
-////
-////        val response = restTemplate.getForEntity(
-////            getRootUrl() + "/$defaultProjectId",
-////            Project::class.java
-////        )
-////
-////        assertEquals(200, response.statusCode.value())
-////        assertNotNull(response.body)
-////        assertEquals(defaultProjectId, response.body?.id)
-//    }
+    @Test
+    fun `should return single project by id`() {
+        saveOneProject()
+
+        val response = restTemplate.getForEntity(
+            getRootUrl() + "/$defaultProjectId",
+            Project::class.java
+        )
+
+        assertEquals(200, response.statusCode.value())
+        assertNotNull(response.body)
+        assertEquals(defaultProjectId, response.body?.id)
+    }
 }

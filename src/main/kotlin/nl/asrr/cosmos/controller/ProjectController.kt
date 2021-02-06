@@ -21,7 +21,7 @@ class ProjectController (private val projectRepository: ProjectRepository){
 
     @GetMapping("/{id}")
     fun getOneProject(@PathVariable("id") id: String): ResponseEntity<Project> {
-        val project = projectRepository.findOneById(ObjectId(id))
+        val project = projectRepository.findOneById(id)
         return ResponseEntity.ok(project)
     }
 }
