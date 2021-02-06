@@ -2,7 +2,6 @@ package nl.asrr.cosmos.project
 
 import nl.asrr.cosmos.model.Project
 import nl.asrr.cosmos.repository.ProjectRepository
-import org.bson.types.ObjectId
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.BeforeEach
