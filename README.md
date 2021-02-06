@@ -36,16 +36,16 @@ Repository that houses the element database, powering the Project Configurator w
 
 
 ## Environments
-### Acceptatie 
+### Main 
 | Name   | Status        |   
 | :------------- |-------------:| 
-| <img src="https://img.shields.io/badge/swagger%20-%2343853D.svg?&style=for-the-badge&logo=swagger&logoColor=white"/>    | https://acceptatie.element-db.vw.api.asrr-tech.com/api/v1/docs |  
-| <img src="https://img.shields.io/badge/Travis CI%20-%23000000.svg?&style=for-the-badge&logo=travis&logoColor=white"/>   | [![Build Status](https://travis-ci.com/ASRRtechnologies/vw-element-db.svg?token=qupxX6pFHqDaPdjEFnQm&branch=acceptatie)](https://travis-ci.com/ASRRtechnologies/vw-asrr-element-db)      |  
+| <img src="https://img.shields.io/badge/swagger%20-%2343853D.svg?&style=for-the-badge&logo=swagger&logoColor=white"/>    | No hosting set up yet |  
+| <img src="https://img.shields.io/badge/Travis CI%20-%23000000.svg?&style=for-the-badge&logo=travis&logoColor=white"/>   | [![Build Status](https://travis-ci.com/ASRRtechnologies/cosmos.svg?branch=main)](https://travis-ci.com/ASRRtechnologies/cosmos)
+|  
 
-### Productie 
+### Local 
 | Name   | Status        |   
 | :------------- |-------------:| 
-| <img src="https://img.shields.io/badge/swagger%20-%2343853D.svg?&style=for-the-badge&logo=swagger&logoColor=white"/>      | https://productie.element-db.vw.api.asrr-tech.com/api/v1/docs |  
-| <img src="https://img.shields.io/badge/Travis CI%20-%23000000.svg?&style=for-the-badge&logo=travis&logoColor=white"/>      | [![Build Status](https://travis-ci.com/ASRRtechnologies/vw-element-db.svg?token=qupxX6pFHqDaPdjEFnQm&branch=productie)](https://travis-ci.com/ASRRtechnologies/vw-asrr-element-db)     |  
+| <img src="https://img.shields.io/badge/swagger%20-%2343853D.svg?&style=for-the-badge&logo=swagger&logoColor=white"/>      | http://localhost:8080/api/v1/docs |  
 
 
