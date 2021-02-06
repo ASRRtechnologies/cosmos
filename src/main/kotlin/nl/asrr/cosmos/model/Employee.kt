@@ -6,8 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 @Document
 data class Employee(
+    val name: String,
     @Id
     val id: ObjectId = ObjectId.get(),
-    val name: String,
-    val entries: MutableList<Entry>
 )

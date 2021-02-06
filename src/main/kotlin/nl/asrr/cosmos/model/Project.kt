@@ -1,7 +1,13 @@
 package nl.asrr.cosmos.model
 
-data class Project(val name: String,
-                   val client: String,
-                   val code: String,
-                   val budget: Int?
+import org.bson.types.ObjectId
+import org.springframework.data.annotation.Id
+
+data class Project(
+    @Id
+    val id: ObjectId = ObjectId.get(),
+    val name: String,
+    val client: String,
+    val code: String,
+    val budget: Int?
 )
