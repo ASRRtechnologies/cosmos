@@ -1,0 +1,21 @@
+A Kotlin + SB App Powered by:
+
+ ${AnsiColor.CYAN}                  ';.          .;oxx;          'dOOOOOOOOOOOOkxo;.     .oOOOOOOOOOOOkxo:.
+ ${AnsiColor.CYAN}                 ,0No.       .c0WMMWl           :xKMMMMMMMMMMMMMWKo.    ,OWMMMMMMMMMMMMWXx,
+ ${AnsiColor.CYAN}                ,0MMNo.     .xWMMNOo'             'clllllllllokXMMWK:    .clllllllllokXWMMXc
+ ${AnsiColor.CYAN}               ,0MMMMNo.    cNMMNl                             ,kWMM0,                'xNMMX:
+ ${AnsiColor.CYAN}              ,0MMMMMMNo.   lWMMK;                              ;KMMNc                 '0MMWd
+ ${AnsiColor.CYAN}             ,0MMMKONMMNo.  ,0MMW0c'..........                  cXMMN:                 ;KMMWo
+ ${AnsiColor.CYAN}            ,0MMM0,.oNMMNo.  ,OWMMWNXXXXXXXXK0xl'.       .....,dXMMWx.           ....'lKWMWO'
+ ${AnsiColor.CYAN}           ,0MMM0,  .oNMMNo.  .:xKNWWWWWWWWWMMMMX0o.    'd000KNMMMXd.          .o000KNWMMNx'
+ ${AnsiColor.CYAN}          ,0MMM0,    .oNMMNo.    .',,,;;,;;;:xXMMMWk.    ;0MMMMW0o'             'OWMMMWKd;
+ ${AnsiColor.CYAN}         ,0MMM0,      .;ccc;.                 cNMMMN:     'OWMMNl.               .xWMMWd.
+ ${AnsiColor.CYAN}        ,OMMM0,                               cNMMMN:      .xWMMXl.               .oNMMNd.
+ ${AnsiColor.CYAN}       ,0WMM0,            ';;;'            .:xXMMMWx.       .dNMMNo.               .lXMMWx.
+ ${AnsiColor.CYAN}      ,0WMM0,            .lXWWXl.          oWMMMXOo.         .lNMMNx.                cKMMWO'
+ ${AnsiColor.CYAN}     .dKXXk,              .lKXXO:          c00xc..             c0XXKo.                ;OKXKd.
+ ${AnsiColor.CYAN}      ....                  .....           .                   .....                  .....
+
+     ........................................................................................
+      ASRR B.V. - INNOVATIVE SOFTWARE DEVELOPMENT   https://asrr.nl | mailto:contact@asrr.nl
+     ........................................................................................

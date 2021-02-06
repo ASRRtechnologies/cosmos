@@ -7,5 +7,6 @@ import org.springframework.boot.runApplication
 class CosmosApplication
 
 fun main(args: Array<String>) {
-	runApplication<CosmosApplication>(*args)
+    runApplication<CosmosApplication>(*args)
 }
+

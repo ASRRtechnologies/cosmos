@@ -12,12 +12,23 @@ class RegistrationService(
 ) {
 
     fun register(request: EmployeeDto): Employee {
-        val entry = Entry("Default", "General", mutableListOf())
+        val (name) = request;
 
-        return employeeRepository.save(Employee(
-            name = request.name,
-            entries = mutableListOf(entry)
-        ))
+        if (employeeRepository.existsByName(name)) throw Exception("Employee not unique")
+
+        return employeeRepository.save(
+            Employee(
+                name = name,
+                entries = getDefaultEntries()
+            )
+        )
     }
+
+    fun getDefaultEntries(): MutableList<Entry> = mutableListOf(
+        Entry("Communications", "General", mutableListOf()),
+        Entry("General", "General", mutableListOf()),
+        Entry("Development", "Front-End", mutableListOf()),
+        Entry("Default", "Back-End", mutableListOf())
+    )
 
 }

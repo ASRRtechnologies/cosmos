@@ -1,5 +1,6 @@
 package nl.asrr.cosmos.dto
 
-data class EmployeeDto(
-    val name: String
-)
+import com.fasterxml.jackson.annotation.JsonCreator
+
+
+data class EmployeeDto (val name: String)

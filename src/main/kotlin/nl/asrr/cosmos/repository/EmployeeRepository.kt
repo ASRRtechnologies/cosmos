@@ -7,5 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository
 interface EmployeeRepository : MongoRepository<Employee, String> {
     fun findOneById(id: ObjectId): Employee
     fun findEmployeeBy(name: String): Employee
+    fun existsByName(name: String): Boolean
     override fun deleteAll()
 }
