@@ -48,7 +48,9 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         "Name",
         "Client",
         "P123",
-        1000
+        1000,
+        null,
+        null
     )
 
     @Test

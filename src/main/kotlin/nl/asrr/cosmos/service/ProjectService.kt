@@ -13,13 +13,12 @@ class ProjectService(
 ) {
 
     fun create(): Int {
-        var a = 3
-        return a
+        return 3
     }
 
     fun createProject(projectCreationDto: ProjectCreationDto): ResponseEntity<Project> {
         val (name, client, budget) = projectCreationDto
-        val project = Project("1", name, client, "$client$name", budget)
+        val project = Project("1", name, client, "$client$name", budget, null, null)
         return ResponseEntity(projectRepository.save(project), HttpStatus.CREATED)
     }
 

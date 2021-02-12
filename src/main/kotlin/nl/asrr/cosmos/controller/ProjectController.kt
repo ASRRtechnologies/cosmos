@@ -5,7 +5,6 @@ import nl.asrr.cosmos.dto.ProjectCreationDto
 import nl.asrr.cosmos.model.Project
 import nl.asrr.cosmos.repository.ProjectRepository
 import nl.asrr.cosmos.service.ProjectService
-import org.bson.types.ObjectId
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
@@ -33,6 +32,6 @@ class ProjectController(
     @PostMapping
     @Operation(summary = "Create new project")
     fun createProject(@RequestBody projectCreationDto: ProjectCreationDto): ResponseEntity<Project> {
-        return projectService.createProject(projectCreationDto);
+        return projectService.createProject(projectCreationDto)
     }
 }
