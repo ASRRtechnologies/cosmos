@@ -1,6 +1,8 @@
 package nl.asrr.cosmos.service
 
 import nl.asrr.cosmos.dto.ProjectCreationDto
+import nl.asrr.cosmos.exception.ProjectAlreadyExistsException
+import nl.asrr.cosmos.exception.ProjectNotFoundException
 import nl.asrr.cosmos.model.Project
 import nl.asrr.cosmos.repository.ProjectRepository
 import org.springframework.http.HttpStatus
@@ -18,8 +20,21 @@ class ProjectService(
 
     fun createProject(projectCreationDto: ProjectCreationDto): ResponseEntity<Project> {
         val (name, client, budget) = projectCreationDto
-        val project = Project("1", name, client, "$client$name", budget, null, null)
+        val code = "$client$name"
+
+        if (exists(code)) throw ProjectAlreadyExistsException("Project with code '$code' already exists in database")
+
+        val project = Project(code, name, client, budget, null, null)
         return ResponseEntity(projectRepository.save(project), HttpStatus.CREATED)
+    }
+
+    fun exists(id: String): Boolean {
+        return projectRepository.existsById(id)
+    }
+
+    fun get(id: String): Project {
+        if (!exists(id)) throw ProjectNotFoundException("Project with id '$id' not found")
+        return projectRepository.findOneById(id)
     }
 
 }

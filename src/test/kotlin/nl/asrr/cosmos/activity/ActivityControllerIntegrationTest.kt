@@ -1,4 +1,4 @@
-package nl.asrr.cosmos.project
+package nl.asrr.cosmos.activity
 
 import nl.asrr.cosmos.dto.ProjectCreationDto
 import nl.asrr.cosmos.model.Project
@@ -23,7 +23,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ExtendWith(SpringExtension::class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class ProjectControllerIntegrationTest @Autowired constructor(
+class ActivityControllerIntegrationTest @Autowired constructor(
     private val projectRepository: ProjectRepository,
     private val restTemplate: TestRestTemplate
 ) {
@@ -47,6 +47,7 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         defaultProjectId,
         "Name",
         "Client",
+        "P123",
         1000,
         "ASRRtechnologies/cosmos",
         null
@@ -83,7 +84,7 @@ class ProjectControllerIntegrationTest @Autowired constructor(
     @Test
     fun `should create one project`() {
         val project = getProject()
-        val (_, name, client, budget) = project
+        val (_, name, client, _, budget) = project
         val request = ProjectCreationDto(name, client, budget)
 
         val create = restTemplate.exchange(

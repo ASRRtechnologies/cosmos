@@ -8,7 +8,6 @@ data class Project(
     val id: String,
     val name: String,
     val client: String,
-    val code: String,
     val budget: Int?,
     val github: String?,
     val fields: List<Field>?
