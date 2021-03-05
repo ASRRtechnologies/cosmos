@@ -25,11 +25,11 @@ class ProjectService(
 
     fun createProject(projectCreationDto: ProjectCreationDto): ResponseEntity<Project> {
         val (name, client, budget) = projectCreationDto
-        val code = "$client$name"
+        val id = generateProjectId(projectCreationDto)
 
-        if (exists(code)) throw ProjectAlreadyExistsException("Project with code '$code' already exists in database")
+        if (exists(id)) throw ProjectAlreadyExistsException("Project with code '$id' already exists in database")
 
-        val project = Project(code, name, client, budget, null, null)
+        val project = Project(id, name, client, budget, null, null)
         return ResponseEntity(projectRepository.save(project), HttpStatus.CREATED)
     }
 
@@ -60,4 +60,8 @@ class ProjectService(
         return project
     }
 
+    fun generateProjectId(projectCreationDto: ProjectCreationDto): String {
+        val (name, client) = projectCreationDto
+        return "$client$name".replace(" ", "")
+    }
 }

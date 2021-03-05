@@ -1,6 +1,7 @@
 package nl.asrr.cosmos.service
 
 import nl.asrr.cosmos.dto.ActivityCreationDto
+import nl.asrr.cosmos.exception.NotFoundException
 import nl.asrr.cosmos.model.Activity
 import nl.asrr.cosmos.model.Field
 import nl.asrr.cosmos.model.Project
@@ -14,12 +15,14 @@ import org.springframework.stereotype.Service
 class ActivityService(private val projectService: ProjectService) {
 
     fun create(projectId: String, activityCreationDto: ActivityCreationDto): ResponseEntity<Activity>{
-        val (fieldName, activityName, duration) = activityCreationDto
         val project = projectService.get(projectId)
+        val exists = project.fields!!.stream().anyMatch { it.name == activityCreationDto.fieldName }
+
+        if (!exists) throw NotFoundException("Field name ${activityCreationDto.fieldName} does not exist in project ${project.name}")
+
+        var field = project.fields.first { it.name == activityCreationDto.fieldName }
 
 
-
-        getFields(project, fieldName)
 
         return ResponseEntity(null, HttpStatus.CREATED)
     }
