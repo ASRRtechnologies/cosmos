@@ -1,5 +1,6 @@
 package nl.asrr.cosmos.project
 
+import nl.asrr.cosmos.dto.FieldCreationDto
 import nl.asrr.cosmos.dto.ProjectCreationDto
 import nl.asrr.cosmos.model.Project
 import nl.asrr.cosmos.repository.ProjectRepository
@@ -36,7 +37,8 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         projectRepository.deleteAll()
     }
 
-    private fun getRootUrl(): String? = "http://localhost:$port/api/v1/projects"
+    private fun getRootUrl(): String = "http://localhost:$port/api/v1/projects"
+
 
     private fun saveOneProject() = projectRepository.save(
         getProject()
@@ -103,4 +105,23 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         assertEquals("$client$name", foundCode)
         assertEquals(budget, foundBudget)
     }
+
+    @Test
+    fun `should create one field`(){
+        saveOneProject()
+        val fieldName = "fieldName1"
+
+        val request = FieldCreationDto(fieldName, defaultProjectId)
+
+        val create = restTemplate.exchange(
+                "${getRootUrl()}/field",
+                HttpMethod.POST,
+                HttpEntity(request, HttpHeaders()),
+                Project::class.java
+        )
+
+        assertEquals(201, create.statusCode.value())
+    }
+
+    //TODO: Check nested tests
 }

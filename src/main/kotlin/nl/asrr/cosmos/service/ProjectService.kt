@@ -1,5 +1,6 @@
 package nl.asrr.cosmos.service
 
+import nl.asrr.cosmos.dto.FieldCreationDto
 import nl.asrr.cosmos.dto.ProjectCreationDto
 import nl.asrr.cosmos.exception.ProjectAlreadyExistsException
 import nl.asrr.cosmos.exception.ProjectNotFoundException
@@ -41,8 +42,9 @@ class ProjectService(
         return projectRepository.findOneById(id)
     }
 
-    fun addField(id: String, fieldName: String): Project {
-        val project = get(id)
+    fun addField(fieldCreationDto: FieldCreationDto): Project {
+        val (fieldName, projectId) = fieldCreationDto
+        val project = get(projectId)
 
         if (project.fields == null) {
             logger.info("hi")
