@@ -97,12 +97,12 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         assertEquals(201, create.statusCode.value())
 
         val responseId = create.body?.id!!
-        val (foundId, foundName, foundClient, foundCode, foundBudget) = projectRepository.findById(responseId).orElse(null)
+        val (foundId, foundName, foundClient, foundBudget) = projectRepository.findById(responseId).orElse(null)
 
         assertEquals(responseId, foundId)
         assertEquals(name, foundName)
         assertEquals(client, foundClient)
-        assertEquals("$client$name", foundCode)
+        assertEquals("$client$name", foundId)
         assertEquals(budget, foundBudget)
     }
 
