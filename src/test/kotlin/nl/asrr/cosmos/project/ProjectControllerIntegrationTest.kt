@@ -121,6 +121,12 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         )
 
         assertEquals(201, create.statusCode.value())
+
+        val project = projectRepository.findById(defaultProjectId).orElseThrow()
+        val fields = project.fields!!
+
+        assertEquals(1, fields.size)
+        assertEquals(fieldName, fields.first().name)
     }
 
     //TODO: Check nested tests
