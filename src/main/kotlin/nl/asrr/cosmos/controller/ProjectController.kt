@@ -3,7 +3,6 @@ package nl.asrr.cosmos.controller
 import io.swagger.v3.oas.annotations.Operation
 import nl.asrr.cosmos.dto.FieldCreationDto
 import nl.asrr.cosmos.dto.ProjectCreationDto
-import nl.asrr.cosmos.model.Field
 import nl.asrr.cosmos.model.Project
 import nl.asrr.cosmos.repository.ProjectRepository
 import nl.asrr.cosmos.service.ProjectService

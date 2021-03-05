@@ -1,7 +1,5 @@
 package nl.asrr.cosmos.exception
 
-import nl.asrr.cosmos.exception.ErrorDetails
-import nl.asrr.cosmos.exception.ProjectAlreadyExistsException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice
