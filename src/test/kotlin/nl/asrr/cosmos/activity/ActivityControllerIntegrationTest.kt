@@ -47,7 +47,6 @@ class ActivityControllerIntegrationTest @Autowired constructor(
         defaultProjectId,
         "Name",
         "Client",
-        "P123",
         1000,
         "ASRRtechnologies/cosmos",
         null
@@ -84,8 +83,8 @@ class ActivityControllerIntegrationTest @Autowired constructor(
     @Test
     fun `should create one project`() {
         val project = getProject()
-        val (_, name, client, _, budget) = project
-        val request = ProjectCreationDto(name, client, budget)
+        val (_, name, client, budget) = project
+        val request = ProjectCreationDto(name, client, 0)
 
         val create = restTemplate.exchange(
             getRootUrl(),

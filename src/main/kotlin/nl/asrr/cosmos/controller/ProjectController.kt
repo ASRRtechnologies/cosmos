@@ -2,6 +2,7 @@ package nl.asrr.cosmos.controller
 
 import io.swagger.v3.oas.annotations.Operation
 import nl.asrr.cosmos.dto.ProjectCreationDto
+import nl.asrr.cosmos.model.Field
 import nl.asrr.cosmos.model.Project
 import nl.asrr.cosmos.repository.ProjectRepository
 import nl.asrr.cosmos.service.ProjectService
@@ -34,4 +35,11 @@ class ProjectController(
     fun createProject(@RequestBody projectCreationDto: ProjectCreationDto): ResponseEntity<Project> {
         return projectService.createProject(projectCreationDto)
     }
+
+    @PostMapping("/field/{projectId}/{fieldName}")
+    @Operation(summary = "Add new field")
+    fun createField(@PathVariable fieldName: String, @PathVariable projectId: String): ResponseEntity<Project> {
+        return ResponseEntity.ok(projectService.addField(projectId, fieldName))
+    }
+
 }
