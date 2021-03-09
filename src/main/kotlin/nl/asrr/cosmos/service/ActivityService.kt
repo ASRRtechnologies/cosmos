@@ -20,9 +20,7 @@ class ActivityService(private val projectService: ProjectService) {
 
         if (!exists) throw NotFoundException("Field name ${activityCreationDto.fieldName} does not exist in project ${project.name}")
 
-        var field = project.fields.first { it.name == activityCreationDto.fieldName }
-
-
+//        var field = project.fields.first { it.name == activityCreationDto.fieldName }
 
         return ResponseEntity(null, HttpStatus.CREATED)
     }

@@ -9,6 +9,6 @@ data class Project(
     val client: String,
     val budget: Int?,
     val github: String?,
-    val fields: List<Field>?
+    var fields: List<Field>?
 )
 
