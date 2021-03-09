@@ -36,6 +36,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springdoc:springdoc-openapi-ui:1.2.33")
+    implementation("org.projectlombok:lombok:1.18.16")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
@@ -63,6 +64,7 @@ tasks.withType<KotlinCompile> {
 }
 
 tasks.withType<Test> {
+    finalizedBy(tasks.jacocoTestReport)
     useJUnitPlatform()
 }
 

@@ -1,5 +1,6 @@
 package nl.asrr.cosmos.project
 
+import nl.asrr.cosmos.dto.FieldCreationDto
 import nl.asrr.cosmos.dto.ProjectCreationDto
 import nl.asrr.cosmos.model.Project
 import nl.asrr.cosmos.repository.ProjectRepository
@@ -16,7 +17,6 @@ import org.springframework.boot.web.server.LocalServerPort
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpMethod
-import org.springframework.http.ResponseEntity
 import org.springframework.test.context.junit.jupiter.SpringExtension
 
 
@@ -37,7 +37,8 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         projectRepository.deleteAll()
     }
 
-    private fun getRootUrl(): String? = "http://localhost:$port/api/v1/projects"
+    private fun getRootUrl(): String = "http://localhost:$port/api/v1/projects"
+
 
     private fun saveOneProject() = projectRepository.save(
         getProject()
@@ -47,9 +48,8 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         defaultProjectId,
         "Name",
         "Client",
-        "P123",
         1000,
-        null,
+        "ASRRtechnologies/cosmos",
         null
     )
 
@@ -84,7 +84,7 @@ class ProjectControllerIntegrationTest @Autowired constructor(
     @Test
     fun `should create one project`() {
         val project = getProject()
-        val (_, name, client, _, budget) = project
+        val (_, name, client, budget) = project
         val request = ProjectCreationDto(name, client, budget)
 
         val create = restTemplate.exchange(
@@ -97,12 +97,37 @@ class ProjectControllerIntegrationTest @Autowired constructor(
         assertEquals(201, create.statusCode.value())
 
         val responseId = create.body?.id!!
-        val (foundId, foundName, foundClient, foundCode, foundBudget) = projectRepository.findById(responseId).orElse(null)
+        val (foundId, foundName, foundClient, foundBudget) = projectRepository.findById(responseId).orElse(null)
 
         assertEquals(responseId, foundId)
         assertEquals(name, foundName)
         assertEquals(client, foundClient)
-        assertEquals("$client$name", foundCode)
+        assertEquals("$client$name", foundId)
         assertEquals(budget, foundBudget)
     }
+
+    @Test
+    fun `should create one field`(){
+        saveOneProject()
+        val fieldName = "fieldName1"
+
+        val request = FieldCreationDto(fieldName, defaultProjectId)
+
+        val create = restTemplate.exchange(
+                "${getRootUrl()}/field",
+                HttpMethod.POST,
+                HttpEntity(request, HttpHeaders()),
+                Project::class.java
+        )
+
+        assertEquals(201, create.statusCode.value())
+
+        val project = projectRepository.findById(defaultProjectId).orElseThrow()
+        val fields = project.fields!!
+
+        assertEquals(1, fields.size)
+        assertEquals(fieldName, fields.first().name)
+    }
+
+    //TODO: Check nested tests
 }
