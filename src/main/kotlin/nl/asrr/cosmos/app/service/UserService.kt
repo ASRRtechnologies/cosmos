@@ -1,9 +1,9 @@
 package nl.asrr.cosmos.app.service
 
+import nl.asrr.cosmos.app.repository.UserRepository
 import nl.asrr.cosmos.user.dto.UserCreationDto
 import nl.asrr.cosmos.user.exception.UserAlreadyExistsException
 import nl.asrr.cosmos.user.model.User
-import nl.asrr.cosmos.app.repository.UserRepository
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
