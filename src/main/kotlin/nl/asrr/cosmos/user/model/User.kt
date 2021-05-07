@@ -1,4 +1,4 @@
-package nl.asrr.cosmos.app.model
+package nl.asrr.cosmos.user.model
 
 import org.springframework.data.annotation.Id
 

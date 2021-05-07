@@ -1,4 +1,4 @@
-package nl.asrr.cosmos.app.dto
+package nl.asrr.cosmos.user.dto
 
 data class UserCreationDto(
     val userName: String,

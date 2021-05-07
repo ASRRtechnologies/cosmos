@@ -20,7 +20,6 @@ class OpenApiConfig {
     ): OpenAPI {
         return OpenAPI()
             .components(Components())
-
             .info(
                 Info()
                     .title("ASRR $appDesciption API $profile")
