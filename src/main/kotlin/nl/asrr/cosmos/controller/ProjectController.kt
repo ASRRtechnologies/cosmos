@@ -42,5 +42,4 @@ class ProjectController(
     fun createField(@RequestBody fieldCreationDto: FieldCreationDto): ResponseEntity<Project> {
         return ResponseEntity(projectService.addField(fieldCreationDto), HttpStatus.CREATED)
     }
-
 }

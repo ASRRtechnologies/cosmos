@@ -11,4 +11,3 @@ data class Project(
     val github: String?,
     var fields: List<Field>?
 )
-

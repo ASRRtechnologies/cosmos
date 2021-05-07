@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class ProjectTest @Autowired constructor(private val projectService: ProjectService){
+class ProjectTest @Autowired constructor(private val projectService: ProjectService) {
 
     @Test
     fun `Test code coverage`() {
         val result = projectService.create()
         assertEquals(3, result)
     }
-
 }

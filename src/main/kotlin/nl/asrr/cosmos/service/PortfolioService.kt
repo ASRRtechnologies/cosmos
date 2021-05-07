@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service
 @Service
 class PortfolioService {
 
-    fun create(){
-
+    fun create() {
     }
 }

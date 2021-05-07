@@ -9,4 +9,3 @@ class CosmosApplication
 fun main(args: Array<String>) {
     runApplication<CosmosApplication>(*args)
 }
-

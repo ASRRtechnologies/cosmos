@@ -16,7 +16,7 @@ class ActivityController(
     @PostMapping("/{project}")
     @Operation(summary = "Add activity to project")
     fun createActivity(@RequestBody activityCreationDto: ActivityCreationDto, @PathVariable project: String):
-            ResponseEntity<Activity> {
-        return activityService.create(project, activityCreationDto)
-    }
+        ResponseEntity<Activity> {
+            return activityService.create(project, activityCreationDto)
+        }
 }

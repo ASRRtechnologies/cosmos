@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service
 @Service
 class ActivityService(private val projectService: ProjectService) {
 
-    fun create(projectId: String, activityCreationDto: ActivityCreationDto): ResponseEntity<Activity>{
+    fun create(projectId: String, activityCreationDto: ActivityCreationDto): ResponseEntity<Activity> {
         val project = projectService.get(projectId)
         val exists = project.fields!!.stream().anyMatch { it.name == activityCreationDto.fieldName }
 
@@ -25,13 +25,12 @@ class ActivityService(private val projectService: ProjectService) {
         return ResponseEntity(null, HttpStatus.CREATED)
     }
 
-
     fun getFields(project: Project, fieldName: String): List<Field>? {
+
 //        if (project.fields!!.stream().noneMatch { fieldName == it.name }) {
 //           return project.fields + Field(fieldName, null)
 //        }
 
         return project.fields
     }
-
 }
