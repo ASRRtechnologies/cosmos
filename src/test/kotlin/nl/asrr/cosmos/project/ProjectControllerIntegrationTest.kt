@@ -1,34 +1,34 @@
-//package nl.asrr.cosmos.project
+// package nl.asrr.cosmos.project
 //
-//import nl.asrr.cosmos.dto.FieldCreationDto
-//import nl.asrr.cosmos.dto.ProjectCreationDto
-//import nl.asrr.cosmos.model.Project
-//import nl.asrr.cosmos.repository.ProjectRepository
-//import org.junit.jupiter.api.Assertions.assertEquals
-//import org.junit.jupiter.api.Assertions.assertNotNull
-//import org.junit.jupiter.api.BeforeEach
-//import org.junit.jupiter.api.Test
-//import org.junit.jupiter.api.TestInstance
-//import org.junit.jupiter.api.extension.ExtendWith
-//import org.springframework.beans.factory.annotation.Autowired
-//import org.springframework.boot.test.context.SpringBootTest
-//import org.springframework.boot.test.web.client.TestRestTemplate
-//import org.springframework.boot.web.server.LocalServerPort
-//import org.springframework.http.HttpEntity
-//import org.springframework.http.HttpHeaders
-//import org.springframework.http.HttpMethod
-//import org.springframework.test.context.junit.jupiter.SpringExtension
+// import nl.asrr.cosmos.dto.FieldCreationDto
+// import nl.asrr.cosmos.dto.ProjectCreationDto
+// import nl.asrr.cosmos.model.Project
+// import nl.asrr.cosmos.repository.ProjectRepository
+// import org.junit.jupiter.api.Assertions.assertEquals
+// import org.junit.jupiter.api.Assertions.assertNotNull
+// import org.junit.jupiter.api.BeforeEach
+// import org.junit.jupiter.api.Test
+// import org.junit.jupiter.api.TestInstance
+// import org.junit.jupiter.api.extension.ExtendWith
+// import org.springframework.beans.factory.annotation.Autowired
+// import org.springframework.boot.test.context.SpringBootTest
+// import org.springframework.boot.test.web.client.TestRestTemplate
+// import org.springframework.boot.web.server.LocalServerPort
+// import org.springframework.http.HttpEntity
+// import org.springframework.http.HttpHeaders
+// import org.springframework.http.HttpMethod
+// import org.springframework.test.context.junit.jupiter.SpringExtension
 //
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-//@ExtendWith(SpringExtension::class)
-//@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-//class ProjectControllerIntegrationTest @Autowired constructor(
+// @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+// @ExtendWith(SpringExtension::class)
+// @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+// class ProjectControllerIntegrationTest @Autowired constructor(
 //    private val projectRepository: ProjectRepository
-//) {
+// ) {
 //    private val defaultProjectId = "id1"
 //
-////    @Autowired
-////    private val restTemplatete: TestRestTemplate? = null
+// //    @Autowired
+// //    private val restTemplatete: TestRestTemplate? = null
 //
 //    @LocalServerPort
 //    protected var port: Int = 0
@@ -130,4 +130,4 @@
 //    }
 //
 //    // TODO: Check nested tests
-//}
+// }

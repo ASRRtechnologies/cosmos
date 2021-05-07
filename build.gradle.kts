@@ -9,11 +9,9 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "1.4.21-2"
     kotlin("plugin.spring") version "1.4.21-2"
-
     id("com.github.johnrengelman.processes") version "0.5.0"
     id("org.springdoc.openapi-gradle-plugin") version "1.3.0"
     id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
-
     jacoco
 }
 
@@ -41,7 +39,6 @@ dependencies {
 }
 
 tasks.jacocoTestReport {
-
     reports {
         xml.isEnabled = true
         xml.destination = file("$buildDir/reports/jacoco/report.xml")
