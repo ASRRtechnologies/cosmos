@@ -11,9 +11,12 @@ plugins {
     kotlin("plugin.spring") version "1.4.21-2"
     id("com.github.johnrengelman.processes") version "0.5.0"
     id("org.springdoc.openapi-gradle-plugin") version "1.3.0"
-    id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
     jacoco
 }
+
+val outputDir = "${project.buildDir}/reports/ktlint/"
+val inputFiles = project.fileTree(mapOf("dir" to "src", "include" to "**/*.kt"))
+val ktlint by configurations.creating
 
 group = "nl.asrr.cosmos"
 version = "0.0.1-SNAPSHOT"
@@ -36,6 +39,28 @@ dependencies {
     implementation("org.springdoc:springdoc-openapi-ui:1.2.33")
     implementation("org.projectlombok:lombok:1.18.16")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("com.ninja-squad:springmockk:1.1.3")
+    ktlint("com.pinterest:ktlint:0.41.0")
+}
+
+val ktlintCheck by tasks.creating(JavaExec::class) {
+    inputs.files(inputFiles)
+    outputs.dir(outputDir)
+
+    description = "Check Kotlin code style."
+    classpath = ktlint
+    main = "nl.asrr.cosmos.CosmosApplication.main"
+    args = listOf("src/**/*.kt")
+}
+
+val ktlintFormat by tasks.creating(JavaExec::class) {
+    inputs.files(inputFiles)
+    outputs.dir(outputDir)
+
+    description = "Fix Kotlin code style deviations."
+    classpath = ktlint
+    main = "nl.asrr.cosmos.CosmosApplication.main"
+    args = listOf("-F", "src/**/*.kt")
 }
 
 tasks.jacocoTestReport {

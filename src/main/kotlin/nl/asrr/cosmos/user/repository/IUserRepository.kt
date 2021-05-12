@@ -1,9 +1,10 @@
-package nl.asrr.cosmos.app.repository
+package nl.asrr.cosmos.user.repository
 
 import nl.asrr.cosmos.user.model.User
 import org.springframework.data.mongodb.repository.MongoRepository
 
-interface UserRepository : MongoRepository<User, String> {
+interface IUserRepository : MongoRepository<User, String> {
     fun findOneById(id: String): User
     override fun deleteAll()
+    fun existsByUserName(userName: String): Boolean
 }

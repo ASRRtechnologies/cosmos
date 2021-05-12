@@ -1,26 +1,26 @@
-package nl.asrr.cosmos.app.service
+package nl.asrr.cosmos.user.service
 
-import nl.asrr.cosmos.app.repository.UserRepository
 import nl.asrr.cosmos.user.dto.UserCreationDto
 import nl.asrr.cosmos.user.exception.UserAlreadyExistsException
 import nl.asrr.cosmos.user.model.User
+import nl.asrr.cosmos.user.repository.IUserRepository
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 
 @Service
-class UserService(val userRepository: UserRepository) {
+class UserService(val userRepository: IUserRepository) {
 
     fun create(userDto: UserCreationDto): ResponseEntity<User> {
-        val (id, name, email) = userDto
+        val (username, name, email) = userDto
 
-        if (exists(id)) throw UserAlreadyExistsException(id)
-        val user = User(id, name, email)
+        if (exists(username)) throw UserAlreadyExistsException(username)
+        val user = User(username, name, email)
 
         return ResponseEntity(userRepository.save(user), HttpStatus.CREATED)
     }
 
-    fun exists(id: String): Boolean {
-        return userRepository.existsById(id)
+    fun exists(username: String): Boolean {
+        return userRepository.existsByUserName(username)
     }
 }
