@@ -15,7 +15,7 @@ class UserService(val userRepository: IUserRepository) {
         val (username, name, email) = userDto
 
         if (exists(username)) throw UserAlreadyExistsException(username)
-        val user = User(username, name, email)
+        val user = User("1234", username, name, email)
 
         return ResponseEntity(userRepository.save(user), HttpStatus.CREATED)
     }

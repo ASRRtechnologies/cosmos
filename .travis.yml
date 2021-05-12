@@ -19,8 +19,6 @@ before_install:
 
 script:
   - ./gradlew build
-  - ./gradlew test
-  - ./gradlew ktlintCheck
 
 after_success:
   - ./scripts/push_image.sh

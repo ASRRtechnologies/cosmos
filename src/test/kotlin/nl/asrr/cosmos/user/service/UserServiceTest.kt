@@ -32,7 +32,7 @@ internal class UserServiceTest {
     fun `create on success should return success statuscode`() {
         val repository = mockk<IUserRepository>()
         every { repository.existsByUserName(any()) } returns false
-        every { repository.save(any()) } returns User(defaultUserName, defaultName, defaultEmail)
+        every { repository.save(any()) } returns User("123", defaultUserName, defaultName, defaultEmail)
         val service = createService(repository)
 
         val created = service.create(createDefaultUser())
