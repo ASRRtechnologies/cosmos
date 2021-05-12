@@ -1,6 +1,8 @@
 server:
   servlet:
     context-path: /api/v1
+  error:
+    include-stacktrace: always
 
 spring:
   application:
@@ -12,6 +14,7 @@ spring:
       database: cosmos
   profiles:
     active: local
+
 
 springdoc:
   swagger-ui:
