@@ -1,14 +1,13 @@
-package nl.asrr.cosmos.app.service
+package nl.asrr.cosmos.project.service
 
-import nl.asrr.cosmos.app.dto.FieldCreationDto
-import nl.asrr.cosmos.app.dto.ProjectCreationDto
 import nl.asrr.cosmos.app.exception.ProjectAlreadyExistsException
 import nl.asrr.cosmos.app.exception.ProjectNotFoundException
-import nl.asrr.cosmos.app.model.Field
-import nl.asrr.cosmos.app.model.Project
 import nl.asrr.cosmos.app.repository.ProjectRepository
+import nl.asrr.cosmos.project.dto.FieldCreationDto
+import nl.asrr.cosmos.project.dto.ProjectCreationDto
+import nl.asrr.cosmos.project.model.Field
+import nl.asrr.cosmos.project.model.Project
 import nl.asrr.cosmos.util.Log
-import nl.asrr.cosmos.util.Log.Companion.logger
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
@@ -19,17 +18,13 @@ class ProjectService(
     private val projectRepository: ProjectRepository
 ) {
 
-    fun create(): Int {
-        return 3
-    }
-
-    fun createProject(projectCreationDto: ProjectCreationDto): ResponseEntity<Project> {
+    fun create(projectCreationDto: ProjectCreationDto): ResponseEntity<Project> {
         val (name, client, budget) = projectCreationDto
         val id = generateProjectId(projectCreationDto)
 
         if (exists(id)) throw ProjectAlreadyExistsException("Project with code '$id' already exists in database")
 
-        val project = Project(id, name, client, budget, null, null)
+        val project = Project(id, name, client, budget ?: 0, null)
         return ResponseEntity(projectRepository.save(project), HttpStatus.CREATED)
     }
 
@@ -46,14 +41,8 @@ class ProjectService(
         val (fieldName, projectId) = fieldCreationDto
         val project = get(projectId)
 
-        if (project.fields == null) {
-            logger.info("hi")
-            project.fields = listOf(Field(fieldName, null))
-            return projectRepository.save(project)
-        }
-
-        if (project.fields!!.stream().noneMatch { it.name == fieldName }) {
-            project.fields = project.fields!! + Field(fieldName, null)
+        if (project.fields.stream().noneMatch { it.name == fieldName }) {
+            project.fields.add(Field(fieldName, null))
             return projectRepository.save(project)
         }
 

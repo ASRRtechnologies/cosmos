@@ -1,6 +1,6 @@
 package nl.asrr.cosmos.app.repository
 
-import nl.asrr.cosmos.app.model.Project
+import nl.asrr.cosmos.project.model.Project
 import org.springframework.data.mongodb.repository.MongoRepository
 
 interface ProjectRepository : MongoRepository<Project, String> {

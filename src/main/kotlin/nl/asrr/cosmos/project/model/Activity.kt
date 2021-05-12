@@ -1,4 +1,4 @@
-package nl.asrr.cosmos.app.model
+package nl.asrr.cosmos.project.model
 
 import java.time.Duration
 

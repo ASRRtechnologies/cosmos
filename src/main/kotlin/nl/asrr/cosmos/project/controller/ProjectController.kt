@@ -1,11 +1,11 @@
-package nl.asrr.cosmos.app.controller
+package nl.asrr.cosmos.project.controller
 
 import io.swagger.v3.oas.annotations.Operation
-import nl.asrr.cosmos.app.dto.FieldCreationDto
-import nl.asrr.cosmos.app.dto.ProjectCreationDto
-import nl.asrr.cosmos.app.model.Project
 import nl.asrr.cosmos.app.repository.ProjectRepository
-import nl.asrr.cosmos.app.service.ProjectService
+import nl.asrr.cosmos.project.dto.FieldCreationDto
+import nl.asrr.cosmos.project.dto.ProjectCreationDto
+import nl.asrr.cosmos.project.model.Project
+import nl.asrr.cosmos.project.service.ProjectService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -39,7 +39,7 @@ class ProjectController(
     @PostMapping
     @Operation(summary = "Create new project")
     fun createProject(@RequestBody projectCreationDto: ProjectCreationDto): ResponseEntity<Project> {
-        return projectService.createProject(projectCreationDto)
+        return projectService.create(projectCreationDto)
     }
 
     @PostMapping("/field")

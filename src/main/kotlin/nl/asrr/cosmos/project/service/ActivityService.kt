@@ -1,10 +1,10 @@
-package nl.asrr.cosmos.app.service
+package nl.asrr.cosmos.project.service
 
-import nl.asrr.cosmos.app.dto.ActivityCreationDto
 import nl.asrr.cosmos.app.exception.NotFoundException
-import nl.asrr.cosmos.app.model.Activity
-import nl.asrr.cosmos.app.model.Field
-import nl.asrr.cosmos.app.model.Project
+import nl.asrr.cosmos.project.dto.ActivityCreationDto
+import nl.asrr.cosmos.project.model.Activity
+import nl.asrr.cosmos.project.model.Field
+import nl.asrr.cosmos.project.model.Project
 import nl.asrr.cosmos.util.Log
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -16,7 +16,7 @@ class ActivityService(private val projectService: ProjectService) {
 
     fun create(projectId: String, activityCreationDto: ActivityCreationDto): ResponseEntity<Activity> {
         val project = projectService.get(projectId)
-        val exists = project.fields!!.stream().anyMatch { it.name == activityCreationDto.fieldName }
+        val exists = project.fields.stream().anyMatch { it.name == activityCreationDto.fieldName }
 
         if (!exists) throw NotFoundException("Field name ${activityCreationDto.fieldName} does not exist in project ${project.name}")
 
