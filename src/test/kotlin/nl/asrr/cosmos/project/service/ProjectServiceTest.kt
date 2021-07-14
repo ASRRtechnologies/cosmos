@@ -6,7 +6,6 @@ import nl.asrr.cosmos.app.exception.ProjectAlreadyExistsException
 import nl.asrr.cosmos.app.exception.ProjectNotFoundException
 import nl.asrr.cosmos.app.repository.ProjectRepository
 import nl.asrr.cosmos.project.dto.ProjectCreationDto
-import nl.asrr.cosmos.project.model.Project
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.assertThrows
@@ -45,14 +44,5 @@ internal class ProjectServiceTest {
 
     private fun getCreationDto(name: String = projectName, client: String = clientName): ProjectCreationDto {
         return ProjectCreationDto(name, client)
-    }
-
-    private fun getProject(): Project {
-        return Project(
-            "123",
-            "123",
-            "123",
-            1
-        )
     }
 }
