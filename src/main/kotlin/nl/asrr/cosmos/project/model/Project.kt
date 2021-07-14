@@ -8,6 +8,6 @@ data class Project(
     val name: String,
     val client: String,
     val budget: Int = 0,
-    val github: String?,
+    val github: String? = "",
     var fields: MutableList<Field> = mutableListOf()
 )

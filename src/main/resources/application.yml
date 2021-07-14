@@ -9,9 +9,12 @@ spring:
     name: Cosmos
   data:
     mongodb:
-      host: localhost
+      host: database.asrr-tech.com
       port: 27017
       database: cosmos
+      authentication-database: admin
+      username: admin
+      password: bTciStoOeXpenSivE
   profiles:
     active: local
 
