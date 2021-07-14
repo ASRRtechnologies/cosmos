@@ -2,11 +2,9 @@ package nl.asrr.cosmos.project.controller
 
 import io.swagger.v3.oas.annotations.Operation
 import nl.asrr.cosmos.app.repository.ProjectRepository
-import nl.asrr.cosmos.project.dto.FieldCreationDto
 import nl.asrr.cosmos.project.dto.ProjectCreationDto
 import nl.asrr.cosmos.project.model.Project
 import nl.asrr.cosmos.project.service.ProjectService
-import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -42,9 +40,9 @@ class ProjectController(
         return projectService.create(projectCreationDto)
     }
 
-    @PostMapping("/field")
-    @Operation(summary = "Add new field")
-    fun createField(@RequestBody fieldCreationDto: FieldCreationDto): ResponseEntity<Project> {
-        return ResponseEntity(projectService.addField(fieldCreationDto), HttpStatus.CREATED)
-    }
+//    @PostMapping("/field")
+//    @Operation(summary = "Add new field")
+//    fun createField(@RequestBody fieldCreationDto: FieldCreationDto): ResponseEntity<Project> {
+//        return ResponseEntity(projectService.addField(fieldCreationDto), HttpStatus.CREATED)
+//    }
 }

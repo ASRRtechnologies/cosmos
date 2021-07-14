@@ -6,9 +6,12 @@ import nl.asrr.cosmos.app.exception.ProjectAlreadyExistsException
 import nl.asrr.cosmos.app.exception.ProjectNotFoundException
 import nl.asrr.cosmos.app.repository.ProjectRepository
 import nl.asrr.cosmos.project.dto.ProjectCreationDto
+import nl.asrr.cosmos.project.model.Project
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.assertThrows
+import org.springframework.http.HttpStatus
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class ProjectServiceTest {
@@ -28,6 +31,18 @@ internal class ProjectServiceTest {
     }
 
     @Test
+    fun `create should result in created for success`() {
+        val repository: ProjectRepository = mockk()
+        every { repository.existsById(any()) } returns false
+        every { repository.save(any()) } returns getProject()
+        val service = createService(repository)
+
+        val result = service.create(getCreationDto())
+
+        Assertions.assertEquals(HttpStatus.CREATED, result.statusCode)
+    }
+
+    @Test
     fun `get should throw exception if project doesnt exist`() {
         val repository: ProjectRepository = mockk()
         every { repository.existsById(any()) } returns false
@@ -38,11 +53,32 @@ internal class ProjectServiceTest {
         }
     }
 
+    @Test
+    fun `get should return project if exists`() {
+        val repository: ProjectRepository = mockk()
+        every { repository.existsById(any()) } returns true
+        every { repository.findOneById(any()) } returns getProject()
+        val service = createService(repository)
+
+        val result = service.get("123")
+
+        Assertions.assertEquals(result, getProject())
+    }
+
     private fun createService(repository: ProjectRepository = mockk()): ProjectService {
         return ProjectService(repository)
     }
 
     private fun getCreationDto(name: String = projectName, client: String = clientName): ProjectCreationDto {
         return ProjectCreationDto(name, client)
+    }
+
+    private fun getProject(): Project {
+        return Project(
+            "123",
+            projectName,
+            clientName,
+            100
+        )
     }
 }
