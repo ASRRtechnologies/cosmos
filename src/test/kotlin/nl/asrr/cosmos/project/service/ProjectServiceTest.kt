@@ -3,6 +3,7 @@ package nl.asrr.cosmos.project.service
 import io.mockk.every
 import io.mockk.mockk
 import nl.asrr.cosmos.app.exception.ProjectAlreadyExistsException
+import nl.asrr.cosmos.app.exception.ProjectNotFoundException
 import nl.asrr.cosmos.app.repository.ProjectRepository
 import nl.asrr.cosmos.project.dto.ProjectCreationDto
 import nl.asrr.cosmos.project.model.Project
@@ -24,6 +25,17 @@ internal class ProjectServiceTest {
 
         assertThrows<ProjectAlreadyExistsException> {
             service.create(getCreationDto())
+        }
+    }
+
+    @Test
+    fun `get should throw exception if project doesnt exist`() {
+        val repository: ProjectRepository = mockk()
+        every { repository.existsById(any()) } returns false
+        val service = createService(repository)
+
+        assertThrows<ProjectNotFoundException> {
+            service.get("123")
         }
     }
 

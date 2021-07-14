@@ -28,10 +28,6 @@ class ProjectService(
         return ResponseEntity(projectRepository.save(project), HttpStatus.CREATED)
     }
 
-    fun exists(id: String): Boolean {
-        return projectRepository.existsById(id)
-    }
-
     fun get(id: String): Project {
         if (!exists(id)) throw ProjectNotFoundException("Project with id '$id' not found")
         return projectRepository.findOneById(id)
@@ -49,8 +45,12 @@ class ProjectService(
         return project
     }
 
-    fun generateProjectId(projectCreationDto: ProjectCreationDto): String {
+    private fun generateProjectId(projectCreationDto: ProjectCreationDto): String {
         val (name, client) = projectCreationDto
         return "$client$name".replace(" ", "")
+    }
+
+    private fun exists(id: String): Boolean {
+        return projectRepository.existsById(id)
     }
 }
