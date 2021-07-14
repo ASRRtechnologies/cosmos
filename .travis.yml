@@ -19,7 +19,6 @@ before_install:
 
 script:
   - ./gradlew build
-  - ./gradlew test
 
 after_success:
   - ./scripts/push_image.sh
