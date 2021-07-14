@@ -10,16 +10,27 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 
+interface IProjectService {
+    /**
+     * Create a project for a specific client
+     */
+    fun create(projectCreationDto: ProjectCreationDto): ResponseEntity<Project>
+    fun get(id: String): Project
+}
+
+/**
+ * Service to create and mutate projects
+ */
 @Log
 @Service
 class ProjectService(
     private val projectRepository: ProjectRepository
-) {
+) : IProjectService {
 
     /**
      * Create a project for a specific client
      */
-    fun create(projectCreationDto: ProjectCreationDto): ResponseEntity<Project> {
+    override fun create(projectCreationDto: ProjectCreationDto): ResponseEntity<Project> {
         val (name, client, budget) = projectCreationDto
         val id = generateProjectId(projectCreationDto)
 
@@ -29,7 +40,7 @@ class ProjectService(
         return ResponseEntity(projectRepository.save(project), HttpStatus.CREATED)
     }
 
-    fun get(id: String): Project {
+    override fun get(id: String): Project {
         if (!exists(id)) throw ProjectNotFoundException("Project with id '$id' not found")
         return projectRepository.findOneById(id)
     }
