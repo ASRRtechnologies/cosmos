@@ -16,8 +16,8 @@ class CustomControllerAdvice : ResponseEntityExceptionHandler() {
 
     @ExceptionHandler(
         value = [
-            (ProjectAlreadyExistsException::class),
-            (UserAlreadyExistsException::class)
+            ProjectAlreadyExistsException::class,
+            UserAlreadyExistsException::class
         ]
     )
     fun handleDuplication(ex: Exception, request: WebRequest): ResponseEntity<ErrorDetails> {
