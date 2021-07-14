@@ -2,9 +2,9 @@ package nl.asrr.cosmos.project.service
 
 import nl.asrr.cosmos.app.exception.ProjectAlreadyExistsException
 import nl.asrr.cosmos.app.exception.ProjectNotFoundException
-import nl.asrr.cosmos.app.repository.ProjectRepository
 import nl.asrr.cosmos.project.dto.ProjectCreationDto
 import nl.asrr.cosmos.project.model.Project
+import nl.asrr.cosmos.project.repository.ProjectRepository
 import nl.asrr.cosmos.util.Log
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

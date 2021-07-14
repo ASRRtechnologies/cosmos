@@ -4,9 +4,9 @@ import io.mockk.every
 import io.mockk.mockk
 import nl.asrr.cosmos.app.exception.ProjectAlreadyExistsException
 import nl.asrr.cosmos.app.exception.ProjectNotFoundException
-import nl.asrr.cosmos.app.repository.ProjectRepository
 import nl.asrr.cosmos.project.dto.ProjectCreationDto
 import nl.asrr.cosmos.project.model.Project
+import nl.asrr.cosmos.project.repository.ProjectRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance

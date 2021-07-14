@@ -1,4 +1,4 @@
-package nl.asrr.cosmos.app.repository
+package nl.asrr.cosmos.project.repository
 
 import nl.asrr.cosmos.project.model.Project
 import org.springframework.data.mongodb.repository.MongoRepository
